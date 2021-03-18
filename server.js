@@ -15,11 +15,11 @@ app.use(session({
 Issuer.defaultHttpOptions = { timeout: 15000 }
 
 const issuer = new Issuer({
-  issuer: process.env.APPID_ISSUER,
-  authorization_endpoint: process.env.APPID_AUTHORIZATION_ENDPOINT,
-  token_endpoint: process.env.APPID_TOKEN_ENDPOINT,
-  userinfo_endpoint: process.env.APPID_USERINFO_ENDPOINT,
-  jwks_uri: process.env.APPID_JWKS_URI,
+  issuer: process.env.APPID_OAUTHSERVERURL,
+  authorization_endpoint: process.env.APPID_OAUTHSERVERURL+'/authorization',
+  token_endpoint: process.env.APPID_OAUTHSERVERURL+'/token',
+  userinfo_endpoint: process.env.APPID_OAUTHSERVERURL+'/userinfo',
+  jwks_uri: process.env.APPID_OAUTHSERVERURL+'/publickeys',
 });
 console.log('Issuer %s %O', issuer.issuer, issuer.metadata);
 issuer.defaultHttpOptions = { timeout: 15000 }
