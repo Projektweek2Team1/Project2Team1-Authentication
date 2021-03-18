@@ -55,12 +55,24 @@ Open up your RedHat Openshift Web-console: Goto the Developer perspective and cl
 - Select Add from Dockerfile
 - Fill in the "Git Repo URL" which points to your project on github or this repo
 - Click "Show Advanced Git Options" and specify the "Git Reference" to point to your branch. This is only needed if your branch is different than "master" !
+- Change the 'Container Port' to 3000
 - Change the 'Application Name' and 'Name' accordingly or accept the defaults
 - Finally Click "Create"
 
 This should result in a full deployment of the application.
 the "Build Config" will create a "Build" to construct the final image.
 Once the Deployment has completed, you can verify the application is working correctly by clicking on the generated route URL.
+
+**Modify the environment variables for your application
+
+* Open the "Build Config" in the OpenSshift Web-console
+* Click on the "Environment" tab
+* Add the following variables and fill in the correct values to reflect your AppID config and application URL's (either local or deployed URL's:
+	* APPID_OAUTHSERVERURL=https://eu-gb.appid.cloud.ibm.com/oauth/v4/70ef0d78-2967-4444-7777-85939e5d4ca6
+	* APPID_CLIENTID=xxxxx
+	* APPID_SECRET=xxxx
+	* REDIRECT_URL_CALLBACK=http://localhost:3000/callback
+	* REDIRECT_URL_WEB_APP=http://localhost:8080/loginwithtoken
 
 **Adding a Github Webhook to automatically update the Openshift deployment as soon as new code is pushed into the repository:**
 
