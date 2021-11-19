@@ -3,7 +3,7 @@ FROM node:8-alpine
 WORKDIR /usr/src/app
 COPY package.json ./
 COPY server.js ./
-COPY .env ./
+# COPY .env ./
 
 RUN npm install
 
