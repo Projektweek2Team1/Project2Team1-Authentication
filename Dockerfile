@@ -1,4 +1,4 @@
-FROM node:8-alpine
+FROM quay.io/jitesoft/node
 
 WORKDIR /usr/src/app
 COPY package.json ./
